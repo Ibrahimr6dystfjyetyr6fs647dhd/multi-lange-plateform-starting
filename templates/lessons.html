@@ -1,0 +1,50 @@
+
+        
+
+{% for lang in langs %}
+
+<h1> Welcom to <u>{{lang}}</u> world </h1>
+<div class="lang" id={{lang}} >
+    {% for lesson in data[lang]["lesson"] %}
+        <div class=lesson id={{lesson['id']}}>
+                    <h2 class="lesson-title">
+                        {{lesson['title']}}
+                    </h2>
+                    {% if data['image'] %}
+                        <img src="{{lesson['image']}}">
+                    {% endif %}
+                    <p class="text"> {{lesson['text']}}</p>
+                    {% if lesson["example"] %}
+                        <p class="example"> EXAMPLE : {{lesson['example']}}</p>
+                    {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+
+<style>
+
+div.lang {
+    
+    padding : 20px 15px;
+    background : #754898;
+    color : white;
+    outline : solid 1px red;
+    font-family : Verdana
+}
+div.lang .lesson-title {
+    color : #777;
+    padding : 7px;
+    background : #333;
+}
+.example {
+    color : red;
+}
+.text {
+    color : green;
+    background : whitesmoke;
+    padding : 12px;
+}
+
+</style>
